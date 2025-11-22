@@ -1,1 +1,988 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>WInvestimento ¬ª Invista hoje para colher amanh√£: construa seu futuro financeiro com sabedoria.</title>
+  <meta name="description" content="WInvestimento ¬ª Invista hoje para colher amanh√£: construa seu futuro financeiro com sabedoria." />
+  <meta name="keywords" content="WInvestimento, Invista hoje para colher amanh√£, construa seu futuro financeiro com sabedoria, financeiro, forex, investimentos." />
+  <meta property="website" content="WIIPHONE" /><meta property="type" content="WIIPHONE" /><meta property="og:type" content="WIIPHONE" />
+  <link href="https://raw.githubusercontent.com/winvestimento/fundos-imobiliarios/refs/heads/main/icon-wi.ico" rel="shortcut icon" type="image/x-icon"><meta name="robots" content="index,follow" />
+  <style>
+    :root{--bg:#f5f6f8;--card:#ffffff;--accent:#ffcc00;--text:#222}
+    *{box-sizing:border-box}
+    body{margin:0;font-family:Inter,system-ui,Segoe UI,Roboto,Arial;color:var(--text);background:var(--bg)}
+    header{background:linear-gradient(90deg,var(--accent),#f0b800);padding:12px 16px;color:#111;display:flex;align-items:center;justify-content:space-between}
+    header h1{margin:0;font-size:18px}
+    nav{display:flex;gap:8px}
+    .btn{background:#fff;border-radius:10px;padding:8px 12px;text-decoration:none;color:#111;display:inline-block;font-weight:600}
+    .container{padding:16px;max-width:1100px;margin:18px auto}
+    .card{background:var(--card);border-radius:12px;padding:12px;box-shadow:0 6px 18px rgba(35,31,32,0.06);margin-bottom:12px}
+    table{width:100%;border-collapse:collapse}
+    th,td{padding:8px;text-align:left;border-bottom:1px solid #eee}
+    th{font-weight:700}
+    .actions{display:flex;gap:8px}
+    .small{font-size:13px;padding:6px 8px;border-radius:8px;cursor:pointer;}
+    .primary{background:var(--accent);color:#111}
+    .danger{background:#ff6b6b;color:#fff;}
+    @media (max-width:700px){
+      table,thead,tbody,tr,th,td{display:block}
+      thead{display:none}
+      tr{margin-bottom:12px;border:1px solid #eee;padding:8px;border-radius:8px}
+      td{border-bottom:0;padding:6px}
+      td::before{content:attr(data-label);display:block;font-weight:700;margin-bottom:4px}
+    }
+    .muted{color:#666;font-size:13px}
+    .flex{display:flex;gap:12px;align-items:center}
+    .spacer{flex:1}
+    input,select{padding:8px;border-radius:8px;border:1px solid #ddd; width: 100%;}
+    .topbar{display:flex;gap:8px;align-items:center}
+    .notice{padding:8px;border-radius:8px;background:#fff8e1;border:1px solid #ffe08a}
+    .right{margin-left:auto}
+    .small.select{padding:6px 10px;border-radius:8px;background:#fff;border:1px solid #ddd; width: 100%;}
+#painelTotalCarteira {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background: #f5f5f5;
+  color: #333;
+  font-weight: bold;
+  padding: 8px 16px;
+  border-top: 2px solid #ffcc00;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 15px;
+  z-index: 9999;
+}
+#painelTotalCarteira span.valor {
+  color: #008000;
+}
+#painelTotalCarteira span.valor.negativo {
+  color: #cc0000;
+}
+.positivo { color: #008000; transition: color 0.3s ease; }
+.negativo { color: #cc0000; transition: color 0.3s ease; }
+.avisoL{padding:8px;border-radius:8px;background:#fff8e1;border:1px solid #ffe08a;font-size:20px;font-family:georgia;margin-bottom:12px;}
+.menu {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: transparent;
+  padding: 10px 15px;
+}
 
+.menu-btn {
+  font-size: 28px;
+  color: #fff;
+  cursor: pointer;
+  display: none; /* aparece sÛ no celular */
+}
+
+.menu-links {
+  display: flex;
+  gap: 15px;
+}
+
+.menu-links a {
+  color: #000;
+  text-decoration: none;
+  font-size: 18px;
+}
+
+/* ------- RESPONSIVO ------- */
+@media (max-width: 650px) {
+  .menu-btn {
+    display: block; /* ativa o bot„o */
+  }
+
+  .menu-links {
+    display: none;
+    flex-direction: column;
+    background: #222;
+    width: 100%;
+    padding: 10px 0;
+  }
+
+  .menu-links.show {
+    display: flex; /* mostra quando clicar */
+  }
+  .menu{background: #222;}
+}
+.porano{font-size:13px;padding:6px 8px;border-radius:8px;cursor:pointer;background:#fff;border:1px solid #ddd;}
+.pormes{font-size:13px;padding:6px 8px;border-radius:8px;cursor:pointer;background:#fff;border:1px solid #ddd;}
+.rede{width: 100%;font-size: 24px;  display: flex; justify-content: space-between; align-items: center;border:0px solid #000;margin-bottom:12px;}
+a.you{color:#FF0000;text-decoration: none;}a.insta{color:#c4a46a;text-decoration: none;}a.face{color:#097fd9;text-decoration: none;}
+a.x-twi{color:#2f3536;text-decoration: none;}a.tik{color:#000000;text-decoration: none;}</style></style>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+  <header>
+    <h1>W Investimento</h1>
+<nav class="menu">
+  <div class="menu-btn" id="menuToggle"><i class="fa-solid fa-bars"></i></div>
+
+  <div class="menu-links" id="menuLinks">
+    <a href="#home" class="btn">Home</a>
+    <a href="#ativos" class="btn">Ativos</a>
+    <a href="#carteira" class="btn">Carteira</a>
+    <a href="#config" class="btn">Configura√ß√£o</a>
+  </div>
+</nav>
+  </header>
+
+  <main class="container">
+    <section id="home" class="card">
+      <div class="topbar">
+        <div>
+          <div class="muted">Saldo dispon√≠vel</div>
+          <div id="saldoDisplay" style="font-size:26px;font-weight:800">R$ 0,00</div>
+        </div>
+        <div class="spacer"></div>
+        <div class="flex">
+          <button id="addSaldoBtn" class="small">Adicionar saldo</button>
+          <span id="goAtivos" class="small- primary-"><!--Ir para Ativos--></span>
+        </div>
+      </div>
+      <div style="margin-top:25px">
+        <h3>Carteira</h3><button onclick="gerarGraficoCarteira()" class="small">Atualizar</button>
+         <canvas id="grafCarteira" height="140"></canvas>
+      </div>
+      <div style="margin-top:25px">
+        <h3>IPCA</h3><button onclick="gerarGraficoIPCA()" class="small">Atualizar</button>
+         <canvas id="grafIPCA" height="140"></canvas>
+      </div>
+      <div style="margin-top:25px">
+        <h3>Carteira x IPCA (Anual)</h3><button onclick="gerarGraficoComparativo()" class="small">Atualizar</button>
+        <button onclick="setModoComparativo('ano')" class="porano">Por Ano</button>
+        <button onclick="setModoComparativo('mes')" class="pormes">Por M√™s</button>
+        <canvas id="grafComparativo" height="120"></canvas>
+      </div>
+      <div style="margin-top:25px">
+        <h3>Crescimento da Carteira vs IPCA (Anual)</h3><button onclick="gerarGraficoCarteiraIPCA()" class="small">Atualizar</button>
+        <canvas id="grafCarteiraIPCA" height="140"></canvas>
+      </div>
+    </section>
+    <section id="ativos" class="card" style="display:none">
+      <div style="display:flex;align-items:center;gap:12px;margin-bottom:12px;flex-wrap:wrap">
+        <div class="flex" style="gap:8px;align-items:center">
+         <input type="hidden" id="newTicker" placeholder="Ex: PETR4" style="text-transform:uppercase" />
+          <input type="hidden" id="newNome" placeholder="Nome do ativo (opcional)" />
+          <span id="addAtivo" class="small"><!--Adicionar--></span>
+        </div>
+        <div class="spacer"></div>
+        <div class="flex" style="gap:8px;align-items:center">
+          <label class="muted">M√©todo atualiza√ß√£o:</label>
+          <select id="updateMethod" class="small select" title="Escolha mÈtodo de atualizaÁ„o">
+            <option value="direct">Direta (fetch Yahoo) ‚Ä¢ r√°pido (bom para APK)</option>
+            <option value="proxy">Proxy (AllOrigins) ‚Ä¢ evita CORS no navegador</option>
+            <option value="fallback">Fallback autom√°tico (Direta ‚Ä¢ Proxy ‚Ä¢ Mant√©m √∫ltimo salvo)</option>
+          </select>
+          <button id="refreshPrices" class="small">Atualizar pre√ßos</button>
+          <span id="limparAtivos" class="small- danger-"><!--Limpar ativos--></span>
+          <span class="small- danger-"><p id="statusMercado" class="muted"></p></span>
+        </div>
+      </div>
+
+      <div class="notice">Observa√ß√£o: o pre√ßo √© buscado pela API p√∫blica do Yahoo Finance (sufixo <code>.SA</code> ser√° adicionado). Use <strong>Direta</strong> para APKs; se no navegador houver erro, tente <strong>Proxy</strong> ou <strong>Fallback</strong>.</div>
+      <div style="overflow:auto;margin-top:12px">
+        <table id="ativosTable">
+          <thead>
+            <tr><th>Ticker</th><th>Nome</th><th>Pre√ßo atual (R$)</th><th>Comprar</th></tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </div>
+    </section>
+
+    <section id="carteira" class="card" style="display:none">
+      <div style="display:flex;align-items:center;gap:12px;margin-bottom:12px">
+        <div class="muted">Hist√≥rico de compras / posi√ß√µes</div>
+        <div id="totaisCarteira"></div>
+        <p id="statusMercado" class="muted" style="text-align:center;margin-top:8px;font-weight:bold;"></p>
+        <div class="spacer"></div>
+        <div class="flex">
+          <button id="exportCarteira" class="small">Exportar JSON</button>
+          <span id="limparCarteira" class="small- danger-"><!--Limpar carteira--></span>
+        </div>
+      </div>
+
+      <div style="overflow:auto">
+        <table id="carteiraTable">
+          <thead>
+            <tr>
+              <th>Ticker</th>
+              <th>Nome</th>
+              <th>Pre√ßo ao acompanhar (R$)</th>
+              <th>Pre√ßo atual (R$)</th>
+              <th>Varia√ß√£o vs salvo (%)</th>
+              <th>Quantidade</th>
+              <th>Resultado (R$)</th>
+              <th>A√ß√µes</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </div>
+    </section>
+
+    <section id="config" class="card" style="display:none">
+      <div class="muted">Configura√ß√µes (salvas no localStorage)</div>
+      <div style="margin-top:12px">
+        <label>Nome do usu√°rio</label><br>
+        <input id="nomeUsuario" placeholder="Seu nome" /><br><br>
+        <button id="saveConfig" class="small primary">Salvar</button>
+      </div>
+    </section>
+
+    <!-- Modal / Compra r·pida -->
+    <div id="buyModal" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,0.4);align-items:center;justify-content:center">
+      <div style="background:#fff;padding:12px;border-radius:12px;max-width:520px;margin:auto;width:95%">
+        <h3>Comprar ativo</h3>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px">
+          <div>
+            <label>Ticker</label><br>
+            <input id="buyTicker" readonly />
+          </div>
+          <div>
+            <label>Nome</label><br>
+            <input id="buyNome" />
+          </div>
+          <div>
+            <label>Pre√ßo ao acompanhar (R$)</label><br>
+            <input id="buyPrecoSalvo" readonly />
+          </div>
+          <div>
+            <label>Quantidade</label><br>
+            <input id="buyQuantidade" type="number" min="0.0001" step="0.0001" value="1" />
+          </div>
+        </div>
+        <div style="display:flex;gap:8px;margin-top:12px;justify-content:flex-end">
+          <button id="closeBuy" class="small">Fechar</button>
+          <button id="confirmBuy" class="small primary">Confirmar compra</button>
+        </div>
+      </div>
+    </div>
+    <div class="rede"><a href="https://www.youtube.com/@winvestimento" target="_blank" class="you"><i class="fa fa-brands fa-youtube"></i></a>
+    <a href="https://www.instagram.com/winvestimentoforex" target="_blank" class="insta"><i class="fa fa-brands fa-instagram"></i></a>
+    <a href="https://x.com/w_investimento" target="_blank" class="x-twi"><i class="fa fa-brands fa-x-twitter"></i></a>
+    <a href="https://www.facebook.com/WInvestimento.com.br" target="_blank" class="face"><i class="fa fa-brands fa-facebook"></i></a>
+    <a href="https://www.tiktok.com/@w.investimento" target="_blank" class="tik"><i class="fa fa-brands fa-tiktok"></i></a></div>
+    <div class="avisoL"><font style="color:#0080FF;">W Investimento ¬ª Invista hoje para colher amanh√£: construa seu futuro financeiro com sabedoria</font><BR><BR>
+    Aviso Legal: O conte√∫do deste site √© fornecido apenas para fins educacionais e informativos.
+    N√£o constitui uma recomenda√ß√£o ou conselho de investimento. Sempre consulte um profissional qualificado antes de tomar decis√µes financeiras.<BR><BR>
+    ¬© 2024 ‚Ä¢ <span id="ano"></span> ‚Ä¢ WInvestimento ‚Ä¢ Todos Direitos Reservado</div>
+
+  </main>
+
+  <script>
+  let chartCarteira = null;
+  let chartIPCA = null;
+  let chartComparativo = null;
+  let chartCarteiraIPCA = null;
+  let modoComparativo = 'ano'; // padr„o
+
+  function setModoComparativo(modo) {
+    modoComparativo = modo;
+    gerarGraficoComparativo(); // j· atualiza
+}
+
+  document.getElementById('menuToggle').addEventListener('click', () => {
+    document.getElementById('menuLinks').classList.toggle('show');
+  });
+  document.getElementById("ano").textContent = new Date().getFullYear();
+
+    // --- Utilit·rios ---
+    const $ = sel => document.querySelector(sel);
+    const money = v => typeof v === 'number' && isFinite(v) ? v.toLocaleString('pt-BR',{style:'currency',currency:'BRL'}) : 'Carregando...';
+
+    // --- Keys no localStorage ---
+    const LS_ATIVOS = 'w_invest_ativos';
+    const LS_CARTEIRA = 'w_invest_carteira';
+    const LS_SALDO = 'w_invest_saldo';
+    const LS_CONFIG = 'w_invest_config';
+
+    // --- Estado inicial com alguns exemplos ---
+    const defaultAtivos = [
+      {ticker:'BBAS3', img:'https://raw.githubusercontent.com/winvestimento/bolsa-de-valores/refs/heads/main/BBAS3.png', nome:'Banco do Brasil', precoAtual:null},
+      {ticker:'ITUB4', img:'https://raw.githubusercontent.com/winvestimento/bolsa-de-valores/refs/heads/main/ITUB4.png', nome:'Ita√∫ Unibanco', precoAtual:null},
+      {ticker:'BBSE3', img:'https://raw.githubusercontent.com/winvestimento/bolsa-de-valores/refs/heads/main/BBSE3.png', nome:'BB Seguridade', precoAtual:null},
+      {ticker:'TAEE11', img:'https://raw.githubusercontent.com/winvestimento/bolsa-de-valores/refs/heads/main/TAEE11.png', nome:'Taesa S.A.', precoAtual:null},
+      {ticker:'CPFE3', img:'https://raw.githubusercontent.com/winvestimento/bolsa-de-valores/refs/heads/main/CPFE3.png', nome:'CPFL Energia', precoAtual:null},
+      {ticker:'EGIE3', img:'https://raw.githubusercontent.com/winvestimento/bolsa-de-valores/refs/heads/main/EGIE3.png', nome:'Engie Brasil', precoAtual:null},
+      {ticker:'PETR4', img:'https://raw.githubusercontent.com/winvestimento/bolsa-de-valores/refs/heads/main/PETR4.png', nome:'Petroleo Brasileiro SA Petrobras', precoAtual:null},
+      {ticker:'PETR3', img:'https://raw.githubusercontent.com/winvestimento/bolsa-de-valores/refs/heads/main/PETR3.png', nome:'Petroleo Brasileiro SA Petrobras', precoAtual:null},
+      {ticker:'VALE3', img:'https://raw.githubusercontent.com/winvestimento/bolsa-de-valores/refs/heads/main/VALE3.png', nome:'Vale S.A.', precoAtual:null},
+      {ticker:'MRFG3', img:'https://raw.githubusercontent.com/winvestimento/bolsa-de-valores/refs/heads/main/MRFG3.png', nome:'MARFRIG', precoAtual:null},
+      {ticker:'CMIG4', img:'https://raw.githubusercontent.com/winvestimento/bolsa-de-valores/refs/heads/main/CMIG4.png', nome:'Energy of Minas Gerais Co', precoAtual:null},
+      {ticker:'ISAE4', img:'https://raw.githubusercontent.com/winvestimento/bolsa-de-valores/refs/heads/main/ISAE4.png', nome:'ISA Energia Brasil S.A.', precoAtual:null},
+      {ticker:'LEVE3', img:'https://raw.githubusercontent.com/winvestimento/bolsa-de-valores/refs/heads/main/LEVE3.png', nome:'MAHLE-Metal Leve S.A.', precoAtual:null},
+      {ticker:'CSMG3', img:'https://raw.githubusercontent.com/winvestimento/bolsa-de-valores/refs/heads/main/CSMG3.png', nome:'Companhia de Saneamento de Minas Gerais', precoAtual:null},
+      {ticker:'BBDC4', img:'https://raw.githubusercontent.com/winvestimento/bolsa-de-valores/refs/heads/main/BBDC4.png', nome:'Banco Bradesco SA Preference Shares', precoAtual:null},
+      {ticker:'BBDC3', img:'https://raw.githubusercontent.com/winvestimento/bolsa-de-valores/refs/heads/main/BBDC3.png', nome:'Banco Bradesco S.A.', precoAtual:null},
+      {ticker:'KLBN4', img:'https://raw.githubusercontent.com/winvestimento/bolsa-de-valores/refs/heads/main/KLBN4.png', nome:'Klabin S.A.', precoAtual:null},
+      {ticker:'KLBN3', img:'https://raw.githubusercontent.com/winvestimento/bolsa-de-valores/refs/heads/main/KLBN3.png', nome:'Klabin S.A.', precoAtual:null},
+      {ticker:'GZIT11', img:'https://raw.githubusercontent.com/winvestimento/fundos-imobiliarios/refs/heads/main/GZIT11.png', nome:'GAZIT MALLS FUNDO DE INVESTIMENTO IMOBILI√ÅRIO - FFI', precoAtual:null},
+      {ticker:'HGLG11', img:'https://raw.githubusercontent.com/winvestimento/fundos-imobiliarios/refs/heads/main/HGLG11.png', nome:'CGHG LOG√çSTICA - FFI', precoAtual:null},
+      {ticker:'XPML11', img:'https://raw.githubusercontent.com/winvestimento/fundos-imobiliarios/refs/heads/main/XPML11.png', nome:'XP MALLS - FFI', precoAtual:null},
+      {ticker:'BTLG11', img:'https://raw.githubusercontent.com/winvestimento/fundos-imobiliarios/refs/heads/main/BTLG11.png', nome:'BTG PACTUAL LOGISTICA FDO INV IMOB - FII', precoAtual:null},
+      {ticker:'KNCR11', img:'https://raw.githubusercontent.com/winvestimento/fundos-imobiliarios/refs/heads/main/KNCR11.png', nome:'KINEA RENDIMENTOS IMOBILI√ÅRIOS - FFI', precoAtual:null},
+      {ticker:'MXRF11', img:'https://raw.githubusercontent.com/winvestimento/fundos-imobiliarios/refs/heads/main/MXRF11.png', nome:'MAXI RENDA - FFI', precoAtual:null},
+      {ticker:'TRXF11', img:'https://raw.githubusercontent.com/winvestimento/fundos-imobiliarios/refs/heads/main/TRXF11.png', nome:'TRX REAL ESTATE - FFI', precoAtual:null},
+      {ticker:'HSML11', img:'https://raw.githubusercontent.com/winvestimento/fundos-imobiliarios/refs/heads/main/HSML11.png', nome:'HSI MALL FDO INV IMOB - FFI', precoAtual:null},
+      {ticker:'CPTS11', img:'https://raw.githubusercontent.com/winvestimento/fundos-imobiliarios/refs/heads/main/CPTS11.png', nome:'CAPITANIA SECURITIES II - FFI', precoAtual:null},
+      {ticker:'MCRE11', img:'https://raw.githubusercontent.com/winvestimento/fundos-imobiliarios/refs/heads/main/MCRE11.png', nome:'FDO DE INV IMOB MAU√Å CAPITAL HIGH YIELD - FFI', precoAtual:null},
+      {ticker:'VGIR11', img:'https://raw.githubusercontent.com/winvestimento/fundos-imobiliarios/refs/heads/main/VGIR11.png', nome:'VALORA CRI CDI - FFI', precoAtual:null}
+    ];
+
+    // --- Storage helpers ---
+    function loadJSON(key, def){
+      try { const raw = localStorage.getItem(key); return raw ? JSON.parse(raw) : def; }
+      catch(e){ return def; }
+    }
+    function saveJSON(key, val){ localStorage.setItem(key, JSON.stringify(val)); }
+
+    function loadAtivos(){
+      const raw = localStorage.getItem(LS_ATIVOS);
+      if(raw) try { return JSON.parse(raw);} catch(e){}
+      saveJSON(LS_ATIVOS, defaultAtivos);
+      return JSON.parse(JSON.stringify(defaultAtivos));
+    }
+    function saveAtivos(list){ saveJSON(LS_ATIVOS, list); }
+
+    function loadCarteira(){ return loadJSON(LS_CARTEIRA, []); }
+    function saveCarteira(c){ saveJSON(LS_CARTEIRA, c); }
+
+    function loadSaldo(){ return Number(localStorage.getItem(LS_SALDO) || 0); }
+    function saveSaldo(v){ localStorage.setItem(LS_SALDO, String(v)); }
+
+    function loadConfig(){ return loadJSON(LS_CONFIG, {}); }
+    function saveConfig(cfg){ saveJSON(LS_CONFIG, cfg); }
+
+    // --- Roteamento simples por hash ---
+    function showSection(id){
+      ['home','ativos','carteira','config'].forEach(s=>{
+        const el = document.getElementById(s);
+        if(el) el.style.display = (s===id)?'block':'none';
+      });
+    }
+    function handleHash(){
+      const h = location.hash.replace('#','') || 'home';
+      showSection(h);
+      if(h==='ativos') renderAtivosTable();
+      if(h==='carteira') renderCarteiraTable();
+      if(h==='config') loadConfigToForm();
+    }
+    window.addEventListener('hashchange', handleHash);
+
+    // --- AtualizaÁ„o de UI ---
+    function updateSaldoUI(){ $('#saldoDisplay').textContent = money(loadSaldo()); }
+
+    // --- FunÁıes de fetch (3 modos) ---
+    // retorna number price ou null
+    async function fetchDirect(ticker){
+      const tickerYahoo = ticker.endsWith('.SA') ? ticker : ticker + '.SA';
+      const url = `https://query1.finance.yahoo.com/v8/finance/chart/${tickerYahoo}?interval=2m&range=1d`;
+      try{
+        const res = await fetch(url);
+        const json = await res.json();
+        const price = json?.chart?.result?.[0]?.meta?.regularMarketPrice;
+        return (price && isFinite(price)) ? price : null;
+      }catch(e){
+        // console.warn('Direct fetch failed', ticker, e);
+        return null;
+      }
+    }
+
+    async function fetchProxy(ticker){
+      const tickerYahoo = ticker.endsWith('.SA') ? ticker : ticker + '.SA';
+      const url = `https://query1.finance.yahoo.com/v8/finance/chart/${tickerYahoo}?interval=2m&range=1d`;
+      try{
+        const proxy = 'https://api.allorigins.win/raw?url=';
+        const res = await fetch(proxy + encodeURIComponent(url));
+        const json = await res.json();
+        const price = json?.chart?.result?.[0]?.meta?.regularMarketPrice;
+        return (price && isFinite(price)) ? price : null;
+      }catch(e){
+        // console.warn('Proxy fetch failed', ticker, e);
+        return null;
+      }
+    }
+
+    // Fallback autom·tico: tenta Direta -> Proxy -> mantÈm ˙ltimo salvo
+    async function fetchWithFallback(ticker){
+      let p = await fetchDirect(ticker);
+      if(p !== null) return p;
+      p = await fetchProxy(ticker);
+      if(p !== null) return p;
+      return null; // sinaliza para manter ˙ltimo salvo
+    }
+
+    // --- Atualiza todos os preÁos conforme mÈtodo selecionado ---
+    async function updateAllPrices(method){
+      const ativos = loadAtivos();
+      const tbody = $('#ativosTable tbody');
+      tbody.innerHTML = '<tr><td colspan="4">Buscando pre√ßos...</td></tr>';
+
+      for(let i=0;i<ativos.length;i++){
+        const a = ativos[i];
+        let price = null;
+
+        if(method === 'direct'){
+          price = await fetchDirect(a.ticker);
+        } else if(method === 'proxy'){
+          price = await fetchProxy(a.ticker);
+        } else if(method === 'fallback'){
+          price = await fetchWithFallback(a.ticker);
+        } else {
+          // default: fallback
+          price = await fetchWithFallback(a.ticker);
+        }
+
+        if(price !== null){
+          a.precoAtual = price;
+        } else {
+          // se n„o veio preÁo, mantÈm ˙ltimo salvo (a.precoAtual j· est· salvo) ó n„o sobrescreve com null
+          a.precoAtual = a.precoAtual || null;
+        }
+
+        // salva a cada iteraÁ„o para persistÍncia imediata
+        saveAtivos(ativos);
+        renderAtivosTable();
+      }
+      // final
+      console.log('Atualiza√ß√£o de pre√ßos conclu√≠da');
+    }
+
+    function renderAtivosTable(){
+      const ativos = loadAtivos();
+      const tbody = $('#ativosTable tbody');
+      tbody.innerHTML = '';
+      if(ativos.length===0){ tbody.innerHTML = '<tr><td colspan="4">Nenhum ativo cadastrado</td></tr>'; return }
+      ativos.forEach(a=>{
+        const tr = document.createElement('tr');
+        tr.innerHTML = `
+          <td><img src="${a.img}" style="width:20px;vertical-align:middle;margin-right:5px;"> ${a.ticker}</td>
+          <td data-label="Nome">${a.nome || '-'} </td>
+          <td data-label="Pre√ßo atual (R$)">${a.precoAtual? money(a.precoAtual) : '<span class="muted">Carregando...</span>'}</td>
+          <td data-label="Comprar"><div class="actions"><button class="small primary" data-action="buy" data-ticker="${a.ticker}">Comprar</button><span class="small" data-action="remove" data-ticker="${a.ticker}"><!--Remover--></span></div></td>
+        `;
+        tbody.appendChild(tr);
+      });
+    }
+
+    // --- Carteira ---
+async function renderCarteiraTable() {
+  const carteira = loadCarteira();
+  const ativos = loadAtivos();
+  const tbody = $('#carteiraTable tbody');
+  tbody.innerHTML = '';
+  if (carteira.length === 0) {
+    tbody.innerHTML = '<tr><td colspan="8">Carteira vazia</td></tr>';
+    return;
+  }
+  for (const pos of carteira) {
+    const ativo = ativos.find(x => x.ticker === pos.ticker);
+    const precoAtual = ativo?.precoAtual ?? null;
+    const precoSalvo = pos.precoSalvo;
+    const quantidade = Number(pos.qtd) || 0;
+    const variacaoPerc = (precoAtual && precoSalvo)
+      ? ((precoAtual - precoSalvo) / precoSalvo * 100)
+      : null;
+    const resultado = (precoAtual && precoSalvo)
+      ? (precoAtual - precoSalvo) * quantidade
+      : null;
+
+    const tr = document.createElement('tr');
+    tr.innerHTML = `
+      <td data-label="Ticker">${pos.ticker}</td>
+      <td data-label="Nome">${pos.nome || '-'}</td>
+      <td data-label="Pre√ßo ao acompanhar (R$)">${money(precoSalvo)}</td>
+      <td data-label="Pre√ßo atual (R$)">${precoAtual ? money(precoAtual) : '<span class="muted">--</span>'}</td>
+      <td data-label="Varia√ß√£o vs salvo (%)">${variacaoPerc !== null ? variacaoPerc.toFixed(2) + '%' : '--'}</td>
+      <td data-label="Quantidade">${quantidade}</td>
+      <td data-label="Resultado (R$)">${resultado !== null ? money(resultado) : '--'}</td>
+      <td data-label="A√ß√µes">
+        <div class="actions">
+          <button class="small primary" data-action="sell" data-id="${pos.id}">Vender</button>
+          <span class="small- danger-" data-action="del" data-id="${pos.id}"><!--Remover--></span>
+        </div>
+      </td>
+    `;
+    tbody.appendChild(tr);
+  }
+}
+
+
+    // --- Compra / carteira ---
+    function openBuyModal(ticker){
+      const ativos = loadAtivos();
+      const a = ativos.find(x=>x.ticker===ticker);
+      $('#buyTicker').value = a.ticker;
+      $('#buyNome').value = a.nome || '';
+      $('#buyPrecoSalvo').value = a.precoAtual? a.precoAtual.toFixed(2) : '';
+      $('#buyQuantidade').value = 1;
+      $('#buyModal').style.display = 'flex';
+    }
+    function closeBuyModal(){ $('#buyModal').style.display = 'none'; }
+
+function confirmBuy(){
+  const ticker = $('#buyTicker').value;
+  const nome = $('#buyNome').value;
+  const precoSalvo = Number($('#buyPrecoSalvo').value) || 0;
+  const qtd = Number($('#buyQuantidade').value) || 0;
+  if(!ticker || qtd <= 0){
+    alert('Ticker inv√°lido ou quantidade zero');
+    return;
+  }
+
+  const custoTotal = precoSalvo * qtd;
+  let saldoAtual = loadSaldo();
+
+  // Verifica se o usu·rio tem saldo suficiente
+  if(saldoAtual < custoTotal){
+    alert(`Saldo insuficiente!\nVoc√™ precisa de ${money(custoTotal)}, mas tem apenas ${money(saldoAtual)}.`);
+    return;
+  }
+
+  // Desconta do saldo
+  saldoAtual -= custoTotal;
+  saveSaldo(saldoAtual);
+  updateSaldoUI();
+
+  // Registra a compra na carteira
+  const carteira = loadCarteira();
+  const id = 'pos_' + Date.now();
+  const novaCompra = {
+    id,
+    ticker,
+    nome,
+    precoSalvo,
+    qtd,
+    ano: new Date().getFullYear(),
+    mes: new Date().getMonth() + 1
+};
+
+  carteira.push(novaCompra);
+  saveCarteira(carteira);
+
+  closeBuyModal();
+  // Atualiza a HOME dinamicamente
+  if (typeof updateHomeUI === 'function') updateHomeUI();
+
+  alert(`Compra realizada com sucesso!\nForam descontados ${money(custoTotal)} do seu saldo.`);
+  renderCarteiraTable();
+}
+
+
+    // --- Eventos e botıes ---
+    document.addEventListener('click', e=>{
+      const btn = e.target.closest('button');
+      if(!btn) return;
+      const action = btn.dataset.action;
+      if(action==='buy') openBuyModal(btn.dataset.ticker);
+      if(action==='remove'){
+        const t = btn.dataset.ticker;
+        let ativos = loadAtivos();
+        ativos = ativos.filter(a=>a.ticker!==t);
+        saveAtivos(ativos);
+        renderAtivosTable();
+      }
+if (action === 'sell') {
+  const id = btn.dataset.id;
+  const carteira = loadCarteira();
+  const ativos = loadAtivos();
+  const pos = carteira.find(p => p.id === id);
+  const ativo = ativos.find(a => a.ticker === pos.ticker);
+  const precoAtual = ativo?.precoAtual ?? 0;
+  const qtd = Number(pos.qtd) || 0;
+  const valorVenda = precoAtual * qtd;
+
+  if (!precoAtual || precoAtual <= 0) {
+    alert('Pre√ßo atual indispon√≠vel. Atualize os pre√ßos antes de vender.');
+    return;
+  }
+
+  if (!confirm(`Confirmar venda de ${qtd} ${pos.ticker} por ${money(valorVenda)} ?`)) return;
+
+  // Remove ativo da carteira
+  const novaCarteira = carteira.filter(p => p.id !== id);
+  saveCarteira(novaCarteira);
+
+  // Soma o valor da venda ao saldo atual
+  let saldoAtual = loadSaldo();
+  saldoAtual += valorVenda;
+  saveSaldo(saldoAtual);
+  updateSaldoUI();
+  
+  // Atualiza a HOME dinamicamente
+  if (typeof updateHomeUI === 'function') updateHomeUI();
+
+  alert(`Venda conclu√≠da!\nVoc√™ recebeu ${money(valorVenda)}.`);
+  renderCarteiraTable();
+}
+
+    });
+
+    $('#addAtivo').addEventListener('click', ()=>{
+      const tk = $('#newTicker').value.trim().toUpperCase();
+      const nome = $('#newNome').value.trim();
+      if(!tk) return alert('Insira um ticker (ex: PETR4)');
+      const ativos = loadAtivos();
+      if(ativos.find(a=>a.ticker===tk)) return alert('Ativo j√° cadastrado');
+      ativos.push({ticker:tk,nome:nome,precoAtual:null});
+      saveAtivos(ativos);
+      $('#newTicker').value=''; $('#newNome').value='';
+      renderAtivosTable();
+    });
+
+    $('#refreshPrices').addEventListener('click', ()=>{
+      const method = $('#updateMethod').value;
+      updateAllPrices(method);
+    });
+
+    $('#limparAtivos').addEventListener('click', ()=>{
+      if(!confirm('Remover todos os ativos?')) return;
+      saveAtivos([]); renderAtivosTable();
+    });
+
+    $('#limparCarteira').addEventListener('click', ()=>{
+      if(!confirm('Limpar carteira?')) return;
+      saveCarteira([]); renderCarteiraTable();
+    });
+
+$('#addSaldoBtn').addEventListener('click', () => {
+  const v = prompt('Valor a adicionar (R$)');
+  const num = Number(String(v).replace(',', '.'));
+
+  if (!num || isNaN(num) || num <= 0) {
+    return alert('Valor inv√°lido');
+  }
+
+  const saldoAtual = loadSaldo();
+  const novoSaldo = saldoAtual + num;
+
+  saveSaldo(novoSaldo);
+  updateSaldoUI();
+  if (typeof updateHomeUI === 'function') updateHomeUI();
+  alert('Saldo adicionado com sucesso!');
+});
+
+    $('#exportCarteira').addEventListener('click', ()=>{
+      const c = loadCarteira();
+      const blob = new Blob([JSON.stringify(c, null, 2)], {type:'application/json'});
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a'); a.href=url; a.download='carteira.json'; a.click(); URL.revokeObjectURL(url);
+    });
+
+    // Modal buttons
+    $('#closeBuy').addEventListener('click', closeBuyModal);
+    $('#confirmBuy').addEventListener('click', confirmBuy);
+
+    // Config
+    function loadConfigToForm(){ const cfg = loadConfig(); $('#nomeUsuario').value = cfg.nome || ''; }
+    $('#saveConfig').addEventListener('click', ()=>{ const cfg = {nome: $('#nomeUsuario').value.trim()}; saveConfig(cfg); alert('Config salva'); });
+
+// --- Status do mercado ---
+function updateMarketStatus(){
+  const agora = new Date();
+  const hora = agora.getHours();
+  const dia = agora.getDay(); // 0 = domingo, 6 = s√°bado
+  const aberto = (dia >= 1 && dia <= 5 && hora >= 10 && hora < 17);
+
+  const statusEl = document.getElementById('statusMercado');
+  if(!statusEl) return;
+
+  if(aberto){
+    statusEl.textContent = 'Mercado Aberto';
+    statusEl.style.color = '#056b30';
+    statusEl.style.background = '#0cf06f';
+    statusEl.style.padding = '8px';
+    statusEl.style.borderRadius = '5px';
+    statusEl.style.textAlign = 'center';
+    statusEl.style.fontWeight = 'bold';
+    statusEl.style.fontFamily = 'Arial, sans-serif';
+  } else {
+    statusEl.textContent = 'Mercado Fechado';
+    statusEl.style.color = '#fff';
+    statusEl.style.background = '#db0726';
+    statusEl.style.padding = '8px';
+    statusEl.style.borderRadius = '5px';
+    statusEl.style.textAlign = 'center';
+    statusEl.style.fontWeight = 'bold';
+    statusEl.style.fontFamily = 'Arial, sans-serif';
+  }
+}
+
+    // InicializaÁ„o
+(function init(){
+  localStorage.removeItem(LS_ATIVOS); // limpa lista antiga
+  updateMarketStatus();
+  setInterval(updateMarketStatus, 60000);
+  updateSaldoUI();
+  renderAtivosTable();
+  renderCarteiraTable();
+  handleHash();
+  updateAllPrices('fallback');
+  gerarGraficoCarteira(); gerarGraficoIPCA(); calcularValorCarteira(); gerarGraficoComparativo(); gerarGraficoCarteiraIPCA();
+})();
+
+    // ObservaÁ„o: se ao transformar em APK o fetch direto falhar por CORS, use 'proxy' no seletor ou 'fallback' (que tenta proxy automaticamente).
+
+//rodape preco fixo
+function atualizarResultados() {
+  const linhas = document.querySelectorAll('table tr');
+  let totalInvestido = 0;
+  let totalAtual = 0;
+
+  for (let i = 1; i < linhas.length; i++) {
+    const cols = linhas[i].querySelectorAll('td');
+    if (cols.length < 7) continue;
+
+    const precoSalvo = parseFloat(cols[2].innerText.replace('R$', '').replace(',', '.'));
+    const precoAtual = parseFloat(cols[3].innerText.replace('R$', '').replace(',', '.'));
+    const qtd = parseFloat(cols[5].innerText) || 0;
+    const resultadoCell = cols[6];
+
+    if (isNaN(precoSalvo) || isNaN(precoAtual)) continue;
+
+    const investido = precoSalvo * qtd;
+    const atual = precoAtual * qtd;
+    const resultado = atual - investido;
+    const variacao = investido > 0 ? (resultado / investido) * 100 : 0;
+
+    resultadoCell.innerHTML = `
+      R$ ${resultado.toFixed(2)}<br>
+      <small class="${variacao >= 0 ? 'positivo' : 'negativo'}">
+        ${variacao.toFixed(2)}%
+      </small>
+    `;
+
+    totalInvestido += investido;
+    totalAtual += atual;
+  }
+
+  const totalResultado = totalAtual - totalInvestido;
+  const totalVariacao = totalInvestido > 0 ? (totalResultado / totalInvestido) * 100 : 0;
+
+  let painel = document.getElementById('painelTotalCarteira');
+  if (!painel) {
+    painel = document.createElement('div');
+    painel.id = 'painelTotalCarteira';
+    document.body.appendChild(painel);
+  }
+
+  painel.innerHTML = `
+    <span>Investido<br><strong>R$ ${totalInvestido.toFixed(2)}</strong></span>
+    <span>Valor Atual<br><strong>R$ ${totalAtual.toFixed(2)}</strong></span>
+    <span>Resultado<br>
+      <strong class="${totalResultado >= 0 ? 'positivo' : 'negativo'}">
+        R$ ${totalResultado.toFixed(2)} (${totalVariacao.toFixed(2)}%)
+      </strong>
+    </span>
+  `;
+}
+
+setInterval(atualizarResultados, 2000);
+
+// === GR¡FICO DA CARTEIRA ===
+// === GR¡FICO DA CARTEIRA + IPCA ===
+function gerarGraficoCarteira() {
+    const ctx = document.getElementById('grafCarteira');
+
+    // Se j· existe um gr·fico criado, destruir ANTES de recriar
+    if (chartCarteira instanceof Chart) {
+        chartCarteira.destroy();
+    }
+
+    // Carrega carteira
+    const carteira = JSON.parse(localStorage.getItem(LS_CARTEIRA)) || [];
+
+    // Sem dados
+    if (carteira.length === 0) {
+        chartCarteira = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: ["Sem dados"],
+                datasets: [{
+                    label: "Carteira",
+                    data: [0]
+                }]
+            }
+        });
+        return;
+    }
+
+    // Labels e valores
+    const labels = carteira.map(item => item.ticker);
+    const valores = carteira.map(item => item.precoSalvo * item.qtd);
+
+    chartCarteira = new Chart(ctx, {
+        type: 'bar',
+        data: {
+            labels,
+            datasets: [{
+                label: 'Valor da Carteira',
+                data: valores,
+                borderWidth: 2,
+                backgroundColor: 'rgba(0, 123, 255, 0.5)',
+                borderColor: 'rgba(0, 123, 255, 1)'
+            }]
+        },
+        options: {
+            responsive: true,
+            plugins: {
+                legend: { display: true }
+            },
+            scales: {
+                y: { beginAtZero: true }
+            }
+        }
+    });
+}
+
+function gerarGraficoIPCA() {
+    const ctx = document.getElementById('grafIPCA');
+
+    if (chartIPCA) {
+        chartIPCA.destroy();
+    }
+
+    const meses = ["2020", "2021", "2022", "2023", "2024", "2025"];
+    const ipca = [4.52, 10.06, 5.79, 4.62, 4.83, 5.35];
+
+    chartIPCA = new Chart(ctx, {
+        type: 'line',
+        data: {
+            labels: meses,
+            datasets: [{
+                label: 'IPCA Mensal (%)',
+                data: ipca,
+                borderWidth: 2
+            }]
+        }
+    });
+}
+
+
+// === GR¡FICO DA CARTEIRA + IPCA ===
+function calcularValorCarteira() {
+    const carteira = JSON.parse(localStorage.getItem(LS_CARTEIRA)) || [];
+
+    let total = 0;
+
+    carteira.forEach(item => {
+        total += item.precoSalvo * item.qtd;
+    });
+
+    return total;
+}
+
+function gerarGraficoComparativo() {
+    const ctx = document.getElementById('grafComparativo');
+
+    if (chartComparativo) {
+        chartComparativo.destroy();
+    }
+
+    const carteira = JSON.parse(localStorage.getItem(LS_CARTEIRA)) || [];
+
+    let totalCarteira = 0;
+    carteira.forEach(item => totalCarteira += item.precoSalvo * item.qtd);
+
+    // ----- AGRUPAR POR ANO OU M S -----
+
+    const agrupado = {};
+
+    carteira.forEach(item => {
+        let chave = "";
+
+        if (modoComparativo === "ano") {
+            chave = item.ano;
+        } else {
+            chave = item.mes + "/" + item.ano; // ex: 11/2025
+        }
+
+        if (!agrupado[chave]) agrupado[chave] = 0;
+        agrupado[chave] += item.precoSalvo * item.qtd;
+    });
+
+    // Ordenar as chaves (anos ou meses)
+    const labels = Object.keys(agrupado).sort();
+
+    // Valores da carteira agrupados
+    const valoresCarteira = labels.map(k => agrupado[k]);
+
+    // IPCA fictÌcio proporcional
+    const ipca = labels.map(() => totalCarteira * 0.04);
+
+    // ----- GERAR O GR¡FICO -----
+
+    chartComparativo = new Chart(ctx, {
+        type: 'bar',
+        data: {
+            labels: labels,
+            datasets: [
+                {
+                    label: 'Carteira (R$)',
+                    data: valoresCarteira
+                },
+                {
+                    label: 'IPCA (estimado)',
+                    data: ipca
+                }
+            ]
+        },
+        options: {
+            responsive: true,
+            scales: {
+                y: { beginAtZero: true }
+            }
+        }
+    });
+}
+
+// Crescimento da Carteira vs IPCA
+function gerarGraficoCarteiraIPCA() {
+    const ctx = document.getElementById('grafCarteiraIPCA');
+
+    if (chartCarteiraIPCA) {
+        chartCarteiraIPCA.destroy();
+    }
+
+    const carteira = JSON.parse(localStorage.getItem(LS_CARTEIRA)) || [];
+    let totalCarteira = 0;
+
+    carteira.forEach(item => totalCarteira += item.precoSalvo * item.qtd);
+
+    const ipcaAnual = 5.35;
+    const ipcaEscalado = ipcaAnual * 1000;
+
+    chartCarteiraIPCA = new Chart(ctx, {
+        type: 'bar',
+        data: {
+            labels: ['Ano Atual'],
+            datasets: [
+                {
+                    label: 'Carteira (R$)',
+                    data: [totalCarteira]
+                },
+                {
+                    label: 'IPCA (escala x1000)',
+                    data: [ipcaEscalado]
+                }
+            ]
+        },
+        options: {
+            responsive: true,
+            scales: {
+                y: { beginAtZero: true }
+            }
+        }
+    });
+}
+</script>
+</body>
+</html>
