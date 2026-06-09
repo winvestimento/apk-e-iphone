@@ -123,10 +123,10 @@ tbody tr td:first-child{
 tbody tr td:last-child{
     border-radius:0 15px 15px 0;
 }
-
+/* Modal
 .table-wrap{
     overflow-x:auto;
-}
+} */
 
 
 
@@ -351,6 +351,228 @@ input{
     align-items:center;
     justify-content:center;
 }
+
+.btnToggle{
+    width:34px;
+    height:34px;
+    border:none;
+    border-radius:50%;
+    background:#2a2f3a;
+    color:#fff;
+    font-size:20px;
+    cursor:pointer;
+    transition:.2s;
+}
+
+.btnToggle:hover{
+    background:#3b4252;
+    transform:scale(1.08);
+}
+
+.detalhe{
+    display:none;
+}
+
+.conteudoDetalhe{
+    background: linear-gradient(
+        180deg,
+        rgba(8,12,20,.95),
+        rgba(4,8,15,.98)
+    );
+
+    border: 1px solid rgba(255,255,255,.08);
+
+    border-left: 3px solid #34d058;
+
+    border-radius: 18px;
+
+    padding: 25px;
+
+    margin: 10px 0;
+
+    box-shadow:
+        0 8px 25px rgba(0,0,0,.35),
+        inset 0 1px 0 rgba(255,255,255,.03);
+}
+.tituloHistorico{
+    font-size:20px;
+    font-weight:700;
+    color:#fff;
+
+    padding-bottom:15px;
+    margin-bottom:20px;
+
+    border-bottom:1px solid rgba(255,255,255,.08);
+}
+.historicoTable{
+    width:100%;
+    border-collapse:collapse;
+}
+
+.historicoTable th{
+    color:#8d9ab1;
+    font-size:12px;
+    text-align:left;
+    padding:12px;
+    border-bottom:1px solid rgba(255,255,255,.08);
+}
+
+.historicoTable td{
+    padding:16px 12px;
+    color:#fff;
+    border-bottom:1px solid rgba(255,255,255,.04);
+}
+.resumo{
+    display:flex;
+    gap:30px;
+
+    margin-top:20px;
+    padding:20px;
+
+    background:rgba(255,255,255,.03);
+
+    border:1px solid rgba(255,255,255,.06);
+
+    border-radius:14px;
+}
+
+.resumo div{
+    flex:1;
+}
+
+.resumo span{
+    display:block;
+    color:#8d9ab1;
+    font-size:13px;
+    margin-bottom:6px;
+}
+
+.resumo strong{
+    color:#fff;
+    font-size:22px;
+}
+
+@media (max-width: 768px){
+
+    thead{
+        display:none;
+    }
+
+    td{
+        display:flex;
+        justify-content:space-between;
+        align-items:center;
+        padding:8px 10px;
+    }
+
+    td:nth-child(1)::before{
+        content:"ATIVO";
+        font-weight:bold;
+    }
+
+    td:nth-child(2)::before{
+        content:"COMPRA";
+        font-weight:bold;
+    }
+
+    td:nth-child(3)::before{
+        content:"M.SEGURANÇA";
+        font-weight:bold;
+    }
+
+    td:nth-child(4)::before{
+        content:"DIFERENÇA";
+        font-weight:bold;
+    }
+
+    td:nth-child(5)::before{
+        content:"VARIAÇÃO";
+        font-weight:bold;
+    }
+
+    td:nth-child(6)::before{
+        content:"GRÁFICO";
+        font-weight:bold;
+    }
+
+    td:nth-child(7)::before{
+        content:"DETALHES";
+        font-weight:bold;
+    }
+}
+
+@media (max-width:768px){
+
+    .historicoTable,
+    .historicoTable tbody,
+    .historicoTable tr,
+    .historicoTable td{
+        display:block;
+        width:100%;
+    }
+
+    .historicoTable th{
+        display:none;
+    }
+
+    .historicoTable tr{
+        border:1px solid #ddd;
+        border-radius:10px;
+        margin-bottom:12px;
+        padding:10px;
+        background:#121212;
+    }
+
+    .historicoTable td{
+        display:flex;
+        justify-content:space-between;
+        align-items:center;
+        padding:6px 0;
+        border:none;
+    }
+
+    .historicoTable td:nth-child(1)::before{
+        content:"ATIVO";
+        font-weight:bold;
+    }
+
+    .historicoTable td:nth-child(2)::before{
+        content:"PREÇO";
+        font-weight:bold;
+    }
+
+    .historicoTable td:nth-child(3)::before{
+        content:"QTD";
+        font-weight:bold;
+    }
+
+    .historicoTable td:nth-child(4)::before{
+        content:"DIFERENÇA";
+        font-weight:bold;
+    }
+
+    .historicoTable td:nth-child(5)::before{
+        content:"VARIAÇÃO";
+        font-weight:bold;
+    }
+
+    .historicoTable td:nth-child(6)::before{
+        content:"DATA";
+        font-weight:bold;
+    }
+    
+}
+.margem{color:#FF8000;}
+.atualizacao{
+    display:inline-block;
+    padding:6px 12px;
+    margin:10px 0;
+    font-size:13px;
+    color:#fff;
+    background:#035fa1;
+    border:1px solid #e5e5e5;
+    border-radius:8px; text-decoration:none;
+}
 </style>
 </head>
 <body>
@@ -359,8 +581,7 @@ input{
 
 <h1>CARTEIRA DE <span>BDRs</span></h1>
 <div class="sub">
-Resumo da sua carteira <a href="https://github.com/winvestimento/apk-e-iphone/blob/main/index.html?raw=true" title="Nova atualização" target="_blank">
-<img src="https://github.com/winvestimento/apk-e-iphone/blob/main/nova-atulaizacao.png?raw=true" style="height:40px;vertical-align:middle;"></a></span>
+Resumo da sua carteira
 </div>
 </div>
 
@@ -371,7 +592,7 @@ ATUALIZADO EM
 </div>
 <div class="valor">
 <span class="verde" id="dataHoje">07/06/2026</span>
-<span id="horaAgora">12:30</span>
+<span id="horaAgora">18:00</span>
 </div>
 </div>
 <div class="info-box">
@@ -389,87 +610,137 @@ MÊS
 <div class="icone"><i class="fa-solid fa-dollar-sign"></i></div>
 <h3>INVESTIDO TOTAL</h3>
 <div class="valor">
-R$ 1.985,30
+R$ 98,44
 </div>
 </div>
 <div class="card">
 <div class="icone"><i class="fa-solid fa-arrow-trend-up"></i></div>
 <h3>VALOR ATUAL</h3>
-<div class="valor positivo"><!--negativo positivo-->
-R$ 2.156,80
+<div class="valor negativo"><!--negativo positivo-->
+R$ -97,65
 </div>
 </div>
 <div class="card">
 <div class="icone"><i class="fa-solid fa-chart-line"></i></div>
 <h3>GANHO / PERDA</h3>
-<div class="valor positivo"><!--negativo positivo-->
-R$ 171,50
+<div class="valor negativo"><!--negativo positivo-->
+R$ -0,53
 </div>
 </div>
 <div class="card">
 <div class="icone"><i class="fa-solid fa-percent"></i></div>
 <h3>RENTABILIDADE</h3>
 <div class="valor negativo"><!--negativo positivo-->
-+8,64%
+-4,92%
 </div>
 </div>
 </div>
 
-<div class="table-wrap">
+<div class="table">
 <table>
 <thead>
 <tr>
 <th>ATIVO</th>
 <th>COMPRA</th>
-<th>NOVA COMPRA</th>
+<th>M.SEGURANÇA</th>
 <th>DIFERENÇA</th>
 <th>%</th>
 <th>GRÁFICO</th>
+<th>+</th>
 </tr>
 </thead>
 <tbody>
+<!-- Formula para calcular
 
+1,00 - 432,98
+
+-431,98
+
+-431,98 ÷ 432,98
+
+-0,99769
+
+-0,99769 × 100
+
+-99,769%
+
+VE A MEDIA
+99,77 + 99,75 = 199,52 / 2 = 99,76%
+
+let media = (p1 + p2) / 2;
+
+Rentabilidade
+-3,74 + -6,09 = -9,83
+-9,83 ÷ 2 = -4,915
+-4,92%
+-->
 <tr>
-<td>
-<div class="ativo">
-<div class="logo"><span><img src="https://github.com/winvestimento/apk-e-iphone/blob/main/Apple.png?raw=true" style="height:40px;vertical-align:middle;"></span></div>
-<div>
-<div class="nome">Apple</div>
-<div class="codigo">AAPL34</div>
+    <td>
+        <div class="ativo">
+            <div class="logo">
+                <img src="https://github.com/winvestimento/apk-e-iphone/blob/main/Apple.png?raw=true"
+                     style="height:40px;vertical-align:middle;">
+            </div>
+            <div>
+                <div class="nome">Apple</div>
+                <div class="codigo">AAPL34</div>
+            </div>
+        </div>
+    </td>
+
+    <td>
+        <div class="preco">R$ 00,00</div>
+        <!--<div class="data-compra">00/00/2026</div>-->
+    </td>
+
+    <td>
+        <div class="novaCompra margem">0,00%</div>
+    </td>
+
+    <td class="positivo">R$ 00,00</td>
+    <td class="positivo">+0,00%</td>
+
+    <td>
+        <div class="grafico">
+            <!-- gráfico -->
+        </div>
+    </td>
+    <td>
+        <button class="btnToggle" onclick="toggleDetalhe(this)">+</button>
+    </td>
+</tr>
+<!-- Linha escondida -->
+<tr class="detalhe">
+<td colspan="7">
+
+<div class="conteudoDetalhe">
+
+    <div class="tituloHistorico">
+         Histórico de Compras
+    </div>
+
+    <table class="historicoTable">
+        <tr>
+            <th>ATIVO</th>
+            <th>PREÇO</th>
+            <th>M.SEGURANÇA</th>
+            <th>DIFERENÇA</th>
+            <th>VARIAÇÃO</th>
+            <th>DATA</th>
+        </tr>
+
+        <tr>
+            <td>COMPRA-0</td>
+            <td>R$ 0,00</td>
+            <td><div class="margem">0,00%</div></td>
+            <td><span class="positivo">R$ 0,00</span></td>
+            <td><span class="negativo">-0,00%</span></td>
+            <td>0/0/2026</td>
+        </tr>
+        
+    </table>
 </div>
-</div>
-</td>
-<td>
-<div class="preco "><!--negativo positivo-->
-    R$ 58,20
-</div>
-<div class="data-compra">
-    05/06/2026
-</div>
-</td>
-<td>
-<div class="novaCompra"><!--negativo positivo-->
-    R$ 61,45
-</div>
-</td>
-<td class="positivo"><!--negativo positivo-->
-R$ 3,25
-</td>
-<td class="positivo"><!--negativo positivo-->
-+5,58%
-</td>
-<td>
-<div class="grafico">
-    <svg viewBox="0 0 220 80">
-        <polyline
-            points="0,65 25,60 50,62 75,45 100,50 115,45 140,60 155,60 220,120"
-            fill="none"
-            stroke="#4dd04d"
-            stroke-width="3"
-            stroke-linecap="round"
-            stroke-linejoin="round"/><!--alto 0,65 25,60 50,62 75,45 100,50 125,35 150,40 175,20 220,0 -->
-    </svg><!--meio 0,65 50,60 50,62 75,50 100,50 125,50 150,50 175,50 220,50 --><!--baixo 0,65 25,60 50,62 75,45 100,50 115,45 140,60 155,60 220,120 -->
-</div>
+
 </td>
 </tr>
 
@@ -485,22 +756,20 @@ R$ 3,25
 </td>
 <td>
 <div class="preco"><!--negativo positivo-->
-    R$ 58,20
+    R$ 5,35
 </div>
-<div class="data-compra">
-    05/06/2026
-</div>
+        <!--<div class="data-compra">00/00/2026</div>-->
 </td>
 <td>
-<div class="novaCompra"><!--negativo positivo-->
-    R$ 61,45
+<div class="novaCompra margem"><!--negativo positivo-->
+<i class="fa fa-arrow-up"></i> 99,53%
 </div>
 </td>
-<td class="positivo"><!--negativo positivo-->
-R$ 3,25
+<td class="negativo"><!--negativo positivo-->
+R$ 0,16
 </td>
-<td class="positivo"><!--negativo positivo-->
-+5,58%
+<td class="negativo"><!--negativo positivo-->
+-3,74%
 </td>
 <td>
 <div class="grafico">
@@ -514,6 +783,42 @@ R$ 3,25
             stroke-linejoin="round"/><!--alto 0,65 25,60 50,62 75,45 100,50 125,35 150,40 175,20 220,0 -->
     </svg><!--meio 0,65 50,60 50,62 75,50 100,50 125,50 150,50 175,50 220,50 --><!--baixo 0,65 25,60 50,62 75,45 100,50 115,45 140,60 155,60 220,120 -->
 </div>
+</td>
+    <td>
+        <button class="btnToggle" onclick="toggleDetalhe(this)">+</button>
+    </td>
+</tr>
+<!-- Linha escondida -->
+<tr class="detalhe">
+<td colspan="7">
+
+<div class="conteudoDetalhe">
+
+    <div class="tituloHistorico">
+         Histórico de Compras
+    </div>
+
+    <table class="historicoTable">
+        <tr>
+            <th>ATIVO</th>
+            <th>PREÇO</th>
+            <th>M.SEGURANÇA</th>
+            <th>DIFERENÇA</th>
+            <th>VARIAÇÃO</th>
+            <th>DATA</th>
+        </tr>
+
+        <tr>
+            <td>COMPRA-A</td>
+            <td>R$ 5,35</td>
+            <td><div class="margem"><i class="fa fa-arrow-up"></i> 99,53%</div></td>
+            <td><span class="positivo">R$ 0,21</span></td>
+            <td><span class="negativo">-3,74</span></td>
+            <td>04/06/2026</td>
+        </tr>
+    </table>
+</div>
+
 </td>
 </tr>
 
@@ -529,22 +834,20 @@ R$ 3,25
 </td>
 <td>
 <div class="preco"><!--negativo positivo-->
-    R$ 58,20
+    R$ 18,85
 </div>
-<div class="data-compra">
-    05/06/2026
-</div>
+        <!--<div class="data-compra">00/00/2026</div>-->
 </td>
 <td>
-<div class="novaCompra"><!--negativo positivo-->
-    R$ 61,45
+<div class="novaCompra margem"><!--negativo positivo-->
+    <i class="fa fa-arrow-up"></i> 99,76%
 </div>
 </td>
-<td class="positivo"><!--negativo positivo-->
-R$ 3,25
+<td class="negativo"><!--negativo positivo-->
+R$ 0,37
 </td>
-<td class="positivo"><!--negativo positivo-->
-+5,58%
+<td class="negativo"><!--negativo positivo-->
+-6,09%
 </td>
 <td>
 <div class="grafico">
@@ -558,6 +861,50 @@ R$ 3,25
             stroke-linejoin="round"/><!--alto 0,65 25,60 50,62 75,45 100,50 125,35 150,40 175,20 220,0 -->
     </svg><!--meio 0,65 50,60 50,62 75,50 100,50 125,50 150,50 175,50 220,50 --><!--baixo 0,65 25,60 50,62 75,45 100,50 115,45 140,60 155,60 220,120 -->
 </div>
+</td>
+    <td>
+        <button class="btnToggle" onclick="toggleDetalhe(this)">+</button>
+    </td>
+</tr>
+<!-- Linha escondida -->
+<tr class="detalhe">
+<td colspan="7">
+
+<div class="conteudoDetalhe">
+
+    <div class="tituloHistorico">
+         Histórico de Compras
+    </div>
+
+    <table class="historicoTable">
+        <tr>
+            <th>ATIVO</th>
+            <th>PREÇO</th>
+            <th>M.SEGURANÇA</th>
+            <th>DIFERENÇA</th>
+            <th>VARIAÇÃO</th>
+            <th>DATA</th>
+        </tr>
+
+        <tr>
+            <td>COMPRA-A</td>
+            <td>R$ 6,28</td>
+            <td><div class="margem"><i class="fa fa-arrow-up"></i> 99,77%</div></td>
+            <td><span class="negativo">R$ 0,47</span></td>
+            <td><span class="negativo">6,92%</span></td>
+            <td>03/06/2026</td>
+        </tr>
+        <tr>
+            <td>COMPRA-A</td>
+            <td>R$ 12,57</td>
+            <td><div class="margem"><i class="fa fa-arrow-up"></i> 99,75%</div></td>
+            <td><span class="positivo">R$ 0,10</span></td>
+            <td><span class="positivo">0,83%</span></td>
+            <td>09/06/2026</td>
+        </tr>
+    </table>
+</div>
+
 </td>
 </tr>
 
@@ -573,28 +920,26 @@ R$ 3,25
 </td>
 <td>
 <div class="preco"><!--negativo positivo-->
-    R$ 58,20
+    R$ 00,00
 </div>
-<div class="data-compra">
-    05/06/2026
-</div>
+        <!--<div class="data-compra">00/00/2026</div>-->
 </td>
 <td>
-<div class="novaCompra"><!--negativo positivo-->
-    R$ 61,45
+<div class="novaCompra margem"><!--negativo positivo-->
+    0,00%
 </div>
 </td>
 <td class="positivo"><!--negativo positivo-->
-R$ 3,25
+R$ 00,00
 </td>
 <td class="positivo"><!--negativo positivo-->
-+5,58%
++0,00%
 </td>
 <td>
 <div class="grafico">
     <svg viewBox="0 0 220 80">
         <polyline
-            points="0,65 25,60 50,62 75,45 100,50 125,35 150,40 175,20 187,187"
+            points="0,0 0,0 0,0 0,0 0,0 0,0 0,0 0,0 0,0"
             fill="none"
             stroke="#4dd04d"
             stroke-width="3"
@@ -602,6 +947,42 @@ R$ 3,25
             stroke-linejoin="round"/><!--alto 0,65 25,60 50,62 75,45 100,50 125,35 150,40 175,20 220,0 -->
     </svg><!--meio 0,65 50,60 50,62 75,50 100,50 125,50 150,50 175,50 220,50 --><!--baixo 0,65 25,60 50,62 75,45 100,50 115,45 140,60 155,60 220,120 -->
 </div>
+</td>
+    <td>
+        <button class="btnToggle" onclick="toggleDetalhe(this)">+</button>
+    </td>
+</tr>
+<!-- Linha escondida -->
+<tr class="detalhe">
+<td colspan="7">
+
+<div class="conteudoDetalhe">
+
+    <div class="tituloHistorico">
+         Histórico de Compras
+    </div>
+
+    <table class="historicoTable">
+        <tr>
+            <th>ATIVO</th>
+            <th>PREÇO</th>
+            <th>M.SEGURANÇA</th>
+            <th>DIFERENÇA</th>
+            <th>VARIAÇÃO</th>
+            <th>DATA</th>
+        </tr>
+
+        <tr>
+            <td>COMPRA-0</td>
+            <td>R$ 0,00</td>
+            <td><div class="margem">0,00%</div></td>
+            <td><span class="positivo">R$ 0,00</span></td>
+            <td><span class="negativo">-0,00%</span></td>
+            <td>0/0/2026</td>
+        </tr>
+    </table>
+</div>
+
 </td>
 </tr>
 
@@ -617,29 +998,27 @@ R$ 3,25
 </td>
 <td>
 <div class="preco"><!--negativo positivo-->
-    R$ 58,20
+    R$ 00,00
 </div>
-<div class="data-compra">
-    05/06/2026
-</div>
+        <!--<div class="data-compra">00/00/2026</div>-->
 </td>
 <td>
 <!--<input value="61,45">-->
-<div class="novaCompra"><!--negativo positivo-->
-    R$ 61,45
+<div class="novaCompra margem"><!--negativo positivo-->
+    0,00%
 </div>
 </td>
 <td class="positivo"><!--negativo positivo-->
-R$ 3,25
+R$ 00,00
 </td>
 <td class="positivo"><!--negativo positivo-->
-+5,58%
++0,00%
 </td>
 <td>
 <div class="grafico">
     <svg viewBox="0 0 220 80">
         <polyline
-            points="0,65 25,60 50,62 75,45 100,50 125,35 150,40 164,20 178,67"
+            points="0,0 0,0 0,0 0,0 0,0 0,0 0,0 0,0 0,0"
             fill="none"
             stroke="#4dd04d"
             stroke-width="3"
@@ -648,11 +1027,48 @@ R$ 3,25
     </svg><!--meio 0,65 50,60 50,62 75,50 100,50 125,50 150,50 175,50 220,50 --><!--baixo 0,65 25,60 50,62 75,45 100,50 115,45 140,60 155,60 220,120 -->
 </div>
 </td>
+    <td>
+        <button class="btnToggle" onclick="toggleDetalhe(this)">+</button>
+    </td>
+</tr>
+<!-- Linha escondida -->
+<tr class="detalhe">
+<td colspan="7">
+
+<div class="conteudoDetalhe">
+
+    <div class="tituloHistorico">
+         Histórico de Compras
+    </div>
+
+    <table class="historicoTable">
+        <tr>
+            <th>ATIVO</th>
+            <th>PREÇO</th>
+            <th>M.SEGURANÇA</th>
+            <th>DIFERENÇA</th>
+            <th>VARIAÇÃO</th>
+            <th>DATA</th>
+        </tr>
+
+        <tr>
+            <td>COMPRA-0</td>
+            <td>R$ 0,00</td>
+            <td><div class="margem">0,00%</div></td>
+            <td><span class="positivo">R$ 0,00</span></td>
+            <td><span class="negativo">-0,00%</span></td>
+            <td>0/0/2026</td>
+        </tr>
+    </table>
+</div>
+
+</td>
 </tr>
 </tbody>
 </table>
 </div>
-
+<a href="https://github.com/winvestimento/apk-e-iphone/blob/main/index.html?raw=true" target="_blank" class="atualizacao" id="proximaAtualizacao">
+<div id="proximaAtualizacao" class="atualizacao"></div></a>
 <div class="footer">
 <i class="fa-solid fa-info-circle"></i> <strong>Aviso:</strong> Esta aplicação tem finalidade exclusivamente educacional. Os dados são inseridos manualmente e podem não refletir cotações reais.
 Não utilize este painel como base única para decisões financeiras ou de investimento. <BR>
@@ -695,6 +1111,38 @@ function atualizarMes(){
 }
 
 atualizarMes();
+
+function toggleDetalhe(botao){
+
+    let linhaPrincipal = botao.closest("tr");
+    let detalhe = linhaPrincipal.nextElementSibling;
+
+    if(detalhe.style.display === "table-row"){
+        detalhe.style.display = "none";
+        botao.textContent = "+";
+    }else{
+        detalhe.style.display = "table-row";
+        botao.textContent = "-";
+    }
+}
+
+function proximaAtualizacao() {
+    const hoje = new Date();
+    const domingo = new Date(hoje);
+
+    let diasAteDomingo = (7 - hoje.getDay()) % 7;
+
+    if (diasAteDomingo === 0) {
+        diasAteDomingo = 7;
+    }
+
+    domingo.setDate(hoje.getDate() + diasAteDomingo);
+
+    return domingo.toLocaleDateString('pt-BR');
+}
+
+document.getElementById("proximaAtualizacao").innerHTML =
+" Próxima atualização: " + proximaAtualizacao() + " às 18:00";
 </script>
 </body>
 </html>
